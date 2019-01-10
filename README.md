@@ -63,7 +63,7 @@ $ vagrant ssh
 ソースをマウントしたフォルダに移動
 
 ```
-$ cd vagrant
+$ cd /vagrant
 ```
 
 Vagrant VM上でDockerコンテナに対してbundle install実行
