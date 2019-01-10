@@ -1,6 +1,8 @@
 # Rails environment of Docker on Vagrant for Mac
 
-Mac上で動作するVagrantとDockerを使用したRails開発環境のテンプレートです。  メンテコストを極力下げるため、必要最低限の構成にしてあります。
+Mac上で動作するVagrantとDockerを使用したRails開発環境のテンプレートです。  
+Docker for Macと比較して、実行速度の低下を防ぎながらソースコードの即時反映を実現しています。  
+メンテコストを極力下げるため、必要最低限の構成にしてあります。必要に応じてカスタマイズして使ってください。
 
 ## Getting Started
 
