@@ -4,7 +4,8 @@ Mac上で動作するVagrantとDockerを使用したRails開発環境のテン�
 
 ## Getting Started
 
-###既存のRailsプロジェクトで使用する場合
+**既存のRailsプロジェクトで使用する場合**
+
 既存のRailsプロジェクトで使用する場合は、下記3ファイルをプロジェクトのドキュメントルートにコピーしてください。
 - Vagrantfile
 - Dockerfile
@@ -82,7 +83,8 @@ Dockerコンテナの実行
 $ sudo docker-compose up
 ```
 
-###新規Railsプロジェクトで使用する場合
+**新規Railsプロジェクトで使用する場合**
+
 ※検証中…
 
 ## Requirement
