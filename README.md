@@ -51,38 +51,38 @@ services:
 Vagrant VMの起動（初回はVMの作成を行います）
 
 ```
-$ vagrant up
+YourMac$ vagrant up
 ```
 
 Vagrant VMにログイン
 
 ```
-$ vagrant ssh
+YourMac$ vagrant ssh
 ```
 
-ソースをマウントしたフォルダに移動
+以下のフォルダにソースがマウントされているので移動
 
 ```
-$ cd /vagrant
+Vagrant$ cd /vagrant
 ```
 
 Vagrant VM上でDockerコンテナに対してbundle install実行
 
 ```
-$ sudo docker-compose run app bundle install
+Vagrant$ sudo docker-compose run app bundle install
 ```
 
 DB構築
 
 ```
-$ sudo docker-compose run app bundle exec rake db:create
-$ sudo docker-compose run app bundle exec rake db:migrate
+Vagrant$ sudo docker-compose run app bundle exec rake db:create
+Vagrant$ sudo docker-compose run app bundle exec rake db:migrate
 ```
 
 Dockerコンテナの実行
 
 ```
-$ sudo docker-compose up
+Vagrant$ sudo docker-compose up
 ```
 
 **新規Railsプロジェクトで使用する場合**
@@ -99,27 +99,27 @@ $ sudo docker-compose up
 上記2つは[Homebrew Cask](http://caskroom.io/)でのインストールを推奨
 
 ```
-$ brew cask install virtualbox
-$ brew cask install vagrant
+YourMac$ brew cask install virtualbox
+YourMac$ brew cask install vagrant
 ```
 
 - vagrant-bindfsプラグイン
 
 ```
-$ vagrant plugin install vagrant-bindfs
+YourMac$ vagrant plugin install vagrant-bindfs
 ```
 
 - vagrant-hostsupdaterプラグイン
 
 ```
-$ vagrant plugin install vagrant-hostsupdater
+YourMac$ vagrant plugin install vagrant-hostsupdater
 ```
 
 共有フォルダのマウントにnfsを使用するため、Macのnfsdを有効にする必要があります。
 
 ```
-$ sudo touch /etc/exports
-$ sudo nfsd enable
+YourMac$ sudo touch /etc/exports
+YourMac$ sudo nfsd enable
 ```
 
 ## Authors
