@@ -69,7 +69,7 @@ Vagrant$ cd /vagrant
 Vagrant VM上でDockerコンテナに対してbundle install実行
 
 ```
-Vagrant$ sudo docker-compose run app bundle install
+Vagrant$ sudo docker-compose run app bundle install --path vendor/bundle
 ```
 
 DB構築
