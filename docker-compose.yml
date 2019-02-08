@@ -17,8 +17,6 @@ services:
     environment:
       BUNDLE_APP_CONFIG: /app/.bundle
       RAILS_ENV: development
-      LAUNCHY_DEBUG: 1
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
     command: bundle exec rails s -p 3000 -b '0.0.0.0' --no-dev-caching
     ports:
       - "80:3000"
