@@ -6,6 +6,9 @@ services:
     volumes:
       - /data/db:/var/lib/postgresql/data  #例：PostgreSQLの場合
 #      - /data/db:/var/lib/mysql  #例：MySQLの場合
+    ports:
+      - "5432:5432" #例：PostgreSQLの場合
+#      - 3306:3306  #例：MySQLの場合
   app:
     user: "1000:1000"
     build: .
@@ -16,6 +19,7 @@ services:
       RAILS_ENV: development
       LAUNCHY_DEBUG: 1
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    command: bundle exec rails s -p 3000 -b '0.0.0.0' --no-dev-caching
     ports:
       - "80:3000"
     depends_on:
