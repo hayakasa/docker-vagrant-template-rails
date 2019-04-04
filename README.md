@@ -1,23 +1,66 @@
-# Rails environment of Docker on Vagrant for Mac
+# Rails environment of Docker on Vagrant
 
-Mac上で動作するVagrantとDockerを使用したRails開発環境のテンプレートです。  
-Docker for Macと比較して、実行速度の低下を防ぎながらソースコードの即時反映を実現しています。  
+Mac/Windows両対応のVagrantとDockerを使用したRails開発環境のテンプレートです。  
+Docker for Mac/Windowsと比較して、実行速度の低下を防ぎながらソースコードの即時反映を実現しています。  
 メンテコストを極力下げるため、必要最低限の構成にしてあります。必要に応じてカスタマイズして使ってください。
+
+## Requirement
+
+事前に以下のツールのインストールを行う必要があります。
+
+- [VirtualBox](https://www.oracle.com/technetwork/server-storage/virtualbox/downloads/index.html)
+- [Vagrant](https://www.vagrantup.com/downloads.html)
+
+{Macの場合}上記2つは[Homebrew Cask](http://caskroom.io/)でのインストールを推奨（公式サイトに最新版が掲載されるのにラグがあるため）
+
+```
+YourMac$ brew cask install virtualbox
+YourMac$ brew cask install vagrant
+```
+
+- vagrant-bindfsプラグインをインストール
+
+```
+YourPC$ vagrant plugin install vagrant-bindfs
+```
+
+- vagrant-hostsupdaterプラグインをインストール
+
+```
+YourPC$ vagrant plugin install vagrant-hostsupdater
+```
+
+{Macの場合}共有フォルダのマウントにnfsを使用するためnfsdを有効にする必要があります。
+
+```
+YourPC$ sudo touch /etc/exports
+YourPC$ sudo nfsd enable
+```
+
+{Windowsの場合}vagrant-winnfsdプラグインをインストール
+
+```
+YourPC$ vagrant plugin install vagrant-winnfsd
+```
 
 ## Getting Started
 
 **既存のRailsプロジェクトで使用する場合**
 
-既存のRailsプロジェクトで使用する場合は、下記3ファイルをプロジェクトのドキュメントルートにコピーしてください。
-- Vagrantfile
-- Dockerfile
-- docker-compose.yml
+既存のRailsプロジェクトで使用する場合は、あなたのプロジェクトをmyappディレクトリ（任意の名前に変更可）内にコピーしてください。
+
+/  
+├ myapp/  
+│  ├ Vagrantfile  
+│  ├ Dockerfile  
+│  └ {your rails project files}  
+└ docker-compose.yml
 
 Rubyのバージョンを設定する
 
 ```
 #Dockerfile
-FROM ruby:2.3.7  #バージョン番号を変更
+FROM ruby:2.5.3  #バージョン番号を変更
 ENV LANG C.UTF-8
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
 RUN mkdir /app
@@ -33,7 +76,7 @@ version: '3'
 services:
   db:
     image: postgres:10.4  #例：PostgreSQLの場合
-#    image: mysql:5.6  #例：MySQLの場合
+#    image: mysql:5.7  #例：MySQLの場合
     volumes:
       - /data/db:/var/lib/postgresql/data  #例：PostgreSQLの場合
 #      - /data/db:/var/lib/mysql  #例：MySQLの場合
@@ -43,27 +86,25 @@ services:
 
 ```
 #Vagrantfile
-  config.vm.hostname = "your.host.name" #任意のホスト名に変更
+  config.vm.hostname = "myapp.localhost" #任意のホスト名に変更
 ```
-
-※以下のコマンドは、プロジェクトのドキュメントルートで実行してください
 
 Vagrant VMの起動（初回はVMの作成を行います）
 
 ```
-YourMac$ vagrant up
+YourPC$ vagrant up
 ```
 
 Vagrant VMにログイン
 
 ```
-YourMac$ vagrant ssh
+YourPC$ vagrant ssh
 ```
 
 以下のフォルダにソースがマウントされているので移動
 
 ```
-Vagrant$ cd /vagrant
+Vagrant$ cd /vagrant/myapp
 ```
 
 Vagrant VM上でDockerコンテナに対してbundle install実行
@@ -89,38 +130,10 @@ Vagrant$ sudo docker-compose up
 
 ※検証中…
 
-## Requirement
+## 検証に使用した環境
 
-事前に以下のツールのインストールを行う必要があります。
-
-- [VirtualBox](https://www.oracle.com/technetwork/server-storage/virtualbox/downloads/index.html)
-- [Vagrant](https://www.vagrantup.com/downloads.html)
-
-上記2つは[Homebrew Cask](http://caskroom.io/)でのインストールを推奨
-
-```
-YourMac$ brew cask install virtualbox
-YourMac$ brew cask install vagrant
-```
-
-- vagrant-bindfsプラグイン
-
-```
-YourMac$ vagrant plugin install vagrant-bindfs
-```
-
-- vagrant-hostsupdaterプラグイン
-
-```
-YourMac$ vagrant plugin install vagrant-hostsupdater
-```
-
-共有フォルダのマウントにnfsを使用するため、Macのnfsdを有効にする必要があります。
-
-```
-YourMac$ sudo touch /etc/exports
-YourMac$ sudo nfsd enable
-```
+- MacBook Air Mid2012 macOS High Sierra
+- BTO PC Windows10 Pro
 
 ## Authors
 
