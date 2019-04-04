@@ -101,7 +101,8 @@ services:
   config.vm.hostname = "myapp.localhost" #任意のホスト名に変更
 ```
 
-Vagrant VMの起動（初回はVMの作成を行います）
+Vagrant VMの起動（初回はVMの作成を行います）  
+※{Windowsの場合}コマンドプロンプトまたはPowerShellを「管理者として実行」する
 
 ```
 YourPC$ vagrant up
