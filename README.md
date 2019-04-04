@@ -56,6 +56,18 @@ YourPC$ vagrant plugin install vagrant-winnfsd
 │  └ {your rails project files}  
 └ docker-compose.yml
 
+database.ymlの以下の項目を当環境に合わせて編集
+
+```
+#database.yml
+development:
+  host: db
+  username: postgres #postgresqlの場合
+    .
+    .
+    .
+```
+
 Rubyのバージョンを設定する
 
 ```
@@ -76,10 +88,10 @@ version: '3'
 services:
   db:
     image: postgres:10.4  #例：PostgreSQLの場合
-#    image: mysql:5.7  #例：MySQLの場合
     volumes:
       - /data/db:/var/lib/postgresql/data  #例：PostgreSQLの場合
-#      - /data/db:/var/lib/mysql  #例：MySQLの場合
+    ports:
+      - "5432:5432" #例：PostgreSQLの場合
 ```
 
 ブラウザでアクセスする際のホスト名を設定
@@ -118,6 +130,12 @@ DB構築
 ```
 Vagrant$ sudo docker-compose run app bundle exec rake db:create
 Vagrant$ sudo docker-compose run app bundle exec rake db:migrate
+```
+
+初期設定に使用したコンテナの削除
+
+```
+Vagrant$ sudo docker-compose down
 ```
 
 Dockerコンテナの実行
