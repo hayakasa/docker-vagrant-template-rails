@@ -14,8 +14,8 @@ Docker for Mac/Windowsと比較して、実行速度の低下を防ぎながら�
 {Macの場合}上記2つは[Homebrew Cask](http://caskroom.io/)でのインストールを推奨（公式サイトに最新版が掲載されるのにラグがあるため）
 
 ```
-YourMac$ brew cask install virtualbox
-YourMac$ brew cask install vagrant
+YourPC$ brew cask install virtualbox
+YourPC$ brew cask install vagrant
 ```
 
 - vagrant-bindfsプラグインをインストール
@@ -51,10 +51,10 @@ YourPC$ vagrant plugin install vagrant-winnfsd
 
 /  
 ├ myapp/  
-│  ├ Vagrantfile  
+│  ├ docker-compose.yml  
 │  ├ Dockerfile  
 │  └ {your rails project files}  
-└ docker-compose.yml
+└ Vagrantfile
 
 database.ymlの以下の項目を当環境に合わせて編集
 
