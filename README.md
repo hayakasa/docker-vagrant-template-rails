@@ -1,7 +1,7 @@
 # Rails environment of Docker on Vagrant
 
 Mac/Windows両対応のVagrantとDockerを使用したRails開発環境のテンプレートです。  
-Docker for Mac/Windowsと比較して、実行速度の低下を防ぎながらソースコードの即時反映を実現しています。  
+共有ディレクトリにNFSを使用し、ソースコードの即時反映を実現しながらDocker for Mac/Windowsと比較して高速に動作します。  
 メンテコストを極力下げるため、必要最低限の構成にしてあります。必要に応じてカスタマイズして使ってください。
 
 ## Requirement
@@ -30,7 +30,7 @@ YourPC$ vagrant plugin install vagrant-bindfs
 YourPC$ vagrant plugin install vagrant-hostsupdater
 ```
 
-{Macの場合}共有フォルダのマウントにnfsを使用するためnfsdを有効にする必要があります。
+{Macの場合}共有ディレクトリのマウントにnfsを使用するためnfsdを有効にする必要があります。
 
 ```
 YourPC$ sudo touch /etc/exports
@@ -114,7 +114,7 @@ Vagrant VMにログイン
 YourPC$ vagrant ssh
 ```
 
-以下のフォルダにソースがマウントされているので移動
+以下のディレクトリにソースがマウントされているので移動
 
 ```
 Vagrant$ cd /vagrant/myapp
