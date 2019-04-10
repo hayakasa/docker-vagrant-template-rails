@@ -43,6 +43,17 @@ YourPC$ sudo nfsd enable
 YourPC$ vagrant plugin install vagrant-winnfsd
 ```
 
+## ネットワーク設定の確認
+
+VirtualBoxマネージャーを起動し、「ファイル」-「ホストネットワークマネージャー」を開く。  
+Virtual Host-Only Ethernet Adapter #{任意の数字}をダブルクリックし、
+
+- 「アダプターを手動で設定」を選択
+- IPv4アドレスを「192.168.33.1」
+- IPv4ネットマスクを「255.255.255.0」
+
+に変更する。
+
 ## Getting Started
 
 **既存のRailsプロジェクトで使用する場合**
