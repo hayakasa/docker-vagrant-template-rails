@@ -157,6 +157,9 @@ Dockerコンテナの実行
 Vagrant$ sudo docker-compose up
 ```
 
+ブラウザで次のURLにアクセス  
+http://myapp.localhost (Vagrantfileのconfig.vm.hostnameで設定したホスト名)
+
 **新規Railsプロジェクトで使用する場合**
 
 ※検証中…
