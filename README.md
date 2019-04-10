@@ -150,7 +150,8 @@ Vagrant$ sudo docker-compose run app bundle exec rake db:migrate
 Vagrant$ sudo docker-compose down
 ```
 
-Dockerコンテナの実行
+Dockerコンテナの実行  
+※実行してから実際にアクセス可能になるまで時間がかかるので気長にお待ち下さい
 
 ```
 Vagrant$ sudo docker-compose up
