@@ -54,6 +54,8 @@ Virtual Host-Only Ethernet Adapter #{任意の数字}をダブルクリックし
 
 に変更する。
 
+※設定項目の細かい内容はこちらで解説しています。 https://qiita.com/hayakasa/items/996822ab073faa2bd338
+
 ## Getting Started
 
 **既存のRailsプロジェクトで使用する場合**
