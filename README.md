@@ -11,7 +11,7 @@ Mac/Windows両対応のVagrantとDockerを使用したRails開発環境のテン
 - [VirtualBox](https://www.oracle.com/technetwork/server-storage/virtualbox/downloads/index.html)
 - [Vagrant](https://www.vagrantup.com/downloads.html)
 
-{Macの場合}上記2つは[Homebrew Cask](http://caskroom.io/)でのインストールを推奨（公式サイトに最新版が掲載されるのにラグがあるため）
+{Macの場合}上記2つはHomebrew Caskでのインストールを推奨（公式サイトに最新版が掲載されるのにラグがあるため）
 
 ```
 YourPC$ brew cask install virtualbox
